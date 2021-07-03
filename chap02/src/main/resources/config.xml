@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="authFailLogger" class="com.kosta.chap02.AuthFailLogger">
+        <property name="threshold" value="5"/>
+    </bean>
+
+    <bean id="authenticationService" class="com.kosta.chap02.AuthenticationService">
+        <property name="failLogger" ref="authFailLogger"/>
+        <property name="userRepository">
+            <ref bean="userRepository"/>
+        </property>
+    </bean>
+
+    <bean id="user1" class="com.kosta.chap02.User">
+        <constructor-arg value="jake" />
+        <constructor-arg value="1234"/>
+    </bean>
+
+    <bean id="userRepository" class="com.kosta.chap02.UserRepository">
+
+    </bean>
+
+    <bean id="pwChangeSvc" class="com.kosta.chap02.PasswordChangeService">
+        <constructor-arg ref="userRepository"/>
+    </bean>
+
+
+
+
+</beans>

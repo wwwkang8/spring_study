@@ -1,6 +1,5 @@
 package com.kosta.chap02;
 
-import com.sun.tools.internal.ws.wscompile.AuthInfo;
 
 public class AuthenticationService {
 
