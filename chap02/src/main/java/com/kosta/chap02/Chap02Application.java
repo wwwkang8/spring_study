@@ -2,16 +2,18 @@ package com.kosta.chap02;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
-@SpringBootApplication
+/** @SpringBootApplication
 public class Chap02Application {
 
     public static void main(String[] args) {
 
         SpringApplication.run(Chap02Application.class, args);
 
-        GenericXmlApplicationContext ctx = new GenericXmlApplicationContext("classpath:config.xml");
+        GenericXmlApplicationContext ctx = new GenericXmlApplicationContext(
+                "classpath:config.xml", "classpath:spring-member.xml", "spring-board.xml", "spring-datasource.xml");
 
         AuthenticationService authSvc = ctx.getBean("authenticationService", AuthenticationService.class);
 
@@ -44,4 +46,27 @@ public class Chap02Application {
         }
     }
 
+} */
+
+@SpringBootApplication
+public class Chap02Application {
+
+    public static void main(String[] args) {
+
+        SpringApplication.run(Chap02Application.class, args);
+
+        AnnotationConfigApplicationContext ctx =
+                new AnnotationConfigApplicationContext(Config.class);
+
+        AuthenticationService authSvc
+                = ctx.getBean("authenticationService", AuthenticationService.class);
+        authSvc.authenticate("bkchoi", "1234");
+
+        PasswordChangeService pwChgSvc = ctx.getBean(PasswordChangeService.class);
+        pwChgSvc.changePassword("bkchoi", "1234", "5678");
+
+        ctx.close();
+
+    }
 }
+
