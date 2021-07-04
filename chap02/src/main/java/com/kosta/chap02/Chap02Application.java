@@ -16,15 +16,15 @@ public class Chap02Application {
         AuthenticationService authSvc = ctx.getBean("authenticationService", AuthenticationService.class);
 
 
-        runAuthAndCatchAuthEx(authSvc, "jake", "1234");
-        runAuthAndCatchAuthEx(authSvc, "jake", "111111");
-        runAuthAndCatchAuthEx(authSvc, "jake", "11111111");
+        runAuthAndCatchAuthEx(authSvc, "bkchoi", "1111");
+        runAuthAndCatchAuthEx(authSvc, "bkchoi", "111111");
+        runAuthAndCatchAuthEx(authSvc, "bkchoi", "1111");
 
-        try{
-            authSvc.authenticate("jake", "1111");
-        }catch(UserNotFoundException ex){
-
-        }
+//        try{
+//            authSvc.authenticate("bkchoi", "1234");
+//        }catch(UserNotFoundException ex){
+//
+//        }
 
         authSvc.authenticate("bkchoi", "1234");
         PasswordChangeService pwChgSvc = ctx.getBean(PasswordChangeService.class);

@@ -15,12 +15,22 @@
     </bean>
 
     <bean id="user1" class="com.kosta.chap02.User">
-        <constructor-arg value="jake" />
+        <constructor-arg value="bkchoi" />
         <constructor-arg value="1234"/>
     </bean>
 
-    <bean id="userRepository" class="com.kosta.chap02.UserRepository">
+    <bean id="user2" class="com.kosta.chap02.User">
+        <constructor-arg value="madvirus" />
+        <constructor-arg value="qwer"/>
+    </bean>
 
+    <bean id="userRepository" class="com.kosta.chap02.UserRepository">
+        <property name="users">
+            <list>
+                <ref bean="user1"/>
+                <ref bean="user2"/>
+            </list>
+        </property>
     </bean>
 
     <bean id="pwChangeSvc" class="com.kosta.chap02.PasswordChangeService">
