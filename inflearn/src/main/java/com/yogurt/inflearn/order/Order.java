@@ -1,4 +1,4 @@
-package com.yogurt.inflearn.discount;
+package com.yogurt.inflearn.order;
 
 public class Order {
 

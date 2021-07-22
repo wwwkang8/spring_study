@@ -1,2 +1,4 @@
-package com.yogurt.inflearn;public class MemberApp {
+package com.yogurt.inflearn;
+
+public class MemberApp {
 }
