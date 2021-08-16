@@ -13,6 +13,12 @@ public class OrderServiceImpl implements OrderService{
 
     private  DiscountPolicy discountPolicy;
 
+    public OrderServiceImpl(MemoryMemberRepository memberRepository, RateDiscountPolicy discountPolicy) {
+    }
+
+    public OrderServiceImpl() {
+    }
+
 
     @Override
     public Order createOrder(Long memberId, String itemName, int itemPrice) {
